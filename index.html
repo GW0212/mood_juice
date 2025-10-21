@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>기분 주스 제조기</title>
+  <meta name="description" content="오늘의 기분을 주스처럼 섞어보세요 🍹">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='48'%3E%F0%9F%8D%B9%3C/text%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <button id="homeBtn" class="title-btn" aria-label="초기화로 이동">기분 주스 제조기</button>
+      <p class="sub">버튼/게이지로 오늘의 감정을 %로 조절해 나만의 주스를 만들어보세요.</p>
+    </header>
+
+    <section class="lab">
+      <!-- Left: Glass preview -->
+      <div class="glass-wrap">
+        <div class="glass">
+          <div class="glass-reflection"></div>
+          <div id="juice" class="juice">
+            <div class="bubbles" aria-hidden="true"></div>
+          </div>
+        </div>
+        <p id="result" class="result">오늘의 주스를 준비하세요 🍹</p>
+        <div class="actions-row">
+          <button id="mixBtn" class="btn primary">오늘의 기분 주스 생성하기</button>
+          <button id="savePngBtn" class="btn ghost">PNG로 저장</button>
+        </div>
+      </div>
+
+      <!-- Right: Controls -->
+      <div class="panel">
+        <h3 class="panel-title">오늘의 기분 선택</h3>
+        <div id="ingredientButtons" class="ingredient-buttons"></div>
+
+        <div class="selected-header">
+          <span>선택한 감정 & 비율</span>
+          <div class="sum-wrap">
+            합계: <strong id="sumPct">0%</strong>
+            <button id="autoEvenBtn" class="mini-btn" title="균등 분배">자동균등</button>
+            <button id="clearBtn" class="mini-btn danger" title="초기화">초기화</button>
+          </div>
+        </div>
+
+        <div id="selectedList" class="selected-list"></div>
+        <div class="chips" id="chips"></div>
+      </div>
+    </section>
+
+    <footer class="footer"></footer>
+  </main>
+
+  <!-- Hidden canvas for PNG export -->
+  <canvas id="exportCanvas" width="800" height="1000" style="display:none;"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
